@@ -5,7 +5,7 @@ SILENCE = @
 COMPONENT_NAME = t0
 TARGET_LIB = \
 	lib/lib$(COMPONENT_NAME).a
-	
+
 TEST_TARGET = \
 	$(COMPONENT_NAME)_tests
 
@@ -13,6 +13,9 @@ TEST_TARGET = \
 PROJECT_HOME_DIR = .
 
 CPP_PLATFORM = Gcc
+
+CPPUTEST_WARNINGFLAGS += -Wno-suggest-override
+CPPUTEST_WARNINGFLAGS += -Wno-suggest-destructor-override
 
 SRC_DIRS = \
 	src/util\
@@ -22,11 +25,11 @@ TEST_SRC_DIRS = \
 	tests \
 	tests/HomeAutomation\
 	mocks
-	
+
 INCLUDE_DIRS =\
   $(CPPUTEST_HOME)/include/\
   include/*\
   mocks
-  
+
 include ../CppUTestCompileFlags.mk
 include $(CPPUTEST_HOME)/build/MakefileWorker.mk
